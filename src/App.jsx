@@ -1,16 +1,53 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useEffect, useState } from "react";
 import "./index.css"
 import car from "./assets/image/car.png"
 
 function App() {
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      const maxScroll = window.innerWidth > 740 ? window.innerHeight*2: window.innerHeight*0.5;
+      const percent = Math.min(scrollTop / maxScroll, 1);
+      setProgress(percent);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   return(
     <>
-    <main className="bg-zinc-300 w-screen h-screen fixed flex items-center">
-      <div className="box bg-white w-screen h-64 "><h1 className="text-8xl text-center text-white "> W E L C O M E I T Z F I Z Z</h1><img  alt="car" className="onScroll-Animation h-full w-80 bg-[linear-gradient(to_right,#22c55e_40px,white_40px)]" src={car}/></div>
+    <div className="h-[150vh] md:h-[100vh] lg:h-[300vh]">
+  <div className="sticky top-0 h-screen overflow-hidden bg-white">
+    <div className="bg-zinc-300 w-screen h-screen fixed flex items-center">
+      <div className="box bg-white w-screen text-center  h-64 ">
+        <div
+  style={{
+    width: `${progress * 100}%`
+  }}
+  className="absolute bg-green-500"
+>
+       <h1
+  className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-3xl md:text-6xl lg:text-9xl text-white text-center font-bold "
+>
+  WELCOME ITZ FIZZ
+</h1>
 
-    </main>
+        <img  className="left-0 h-64 z-10"  style={{
+  transform: `translateX(${
+    window.innerWidth > 740 ? progress * 1400 : progress * 600
+  }px)`,
+  minWidth: `${
+    window.innerWidth > 740 ? "300px": "50px"
+  }`,
+  minHeight: `${
+    window.innerWidth > 740 ? "300px": "50px"
+  }`
+}} alt="car"  src={car}/>
+        </div></div></div>
+    </div>
+    </div>
     </>
   )
 }
