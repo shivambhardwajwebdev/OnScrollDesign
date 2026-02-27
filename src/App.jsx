@@ -48,7 +48,7 @@ function App() {
                 </h1>
 
                 <img className="left-0 z-10" style={{
-                  transform: `translateX(${window.innerWidth > 768 ? progress * 1450 : progress * 400
+                  transform: `translateX(${window.innerWidth > 768 ? progress * 1450 : window.innerWidth<400?progress*400:progress*800
                     }px)`,
                   minWidth: `${window.innerWidth > 768 ? "260px" : "150px"
                     }`,
