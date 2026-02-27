@@ -1,21 +1,36 @@
-
 @import "tailwindcss";
-*{
-    margin: 0;
-    padding: 0;
+
+* {
+  margin: 0;
+  padding: 0;
 }
-body{
-    box-sizing: border-box;
-    font-style: normal;
-    font-family: 'Montserrat',sans-serif;
-    font-weight: 400;
+
+body {
+  box-sizing: border-box;
+  font-style: normal;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
 
 }
-.hero{
+
+.hero {
   transition: 1s ease;
-  animation: fade-in duration timing-function delay iteration-count direction fill-mode;
+  animation: fade-in 1s 1 forwards;
 }
-.box2,.box1{
+
+img,
+.background {
+  transition: all;
+}
+
+.heading {
+  letter-spacing: 10px;
+  width: 100%;
+  transition: 0.6s ease-out;
+}
+
+.box2,
+.box1 {
   display: flex;
   flex-direction: row;
   padding: 20px;
@@ -24,69 +39,58 @@ body{
   border: none;
   border-radius: 20px;
   justify-content: space-evenly;
- 
+
 
 }
-.box-1,.box-2,.box-3,.box-4{
-   transition: 1s ease-in-out;
-   border-radius: 20px;
-   height: 200px;
-   width: 200px;
+
+.box-1,
+.box-2,
+.box-3,
+.box-4 {
+  transition: 1s ease-in-out;
+  border-radius: 20px;
+  padding: 10px;
+  height: 200px;
+  width: 200px;
 }
+
 @media (min-width:768px) {
-  .box-1,.box-2,.box-3,.box-4{
-   transition: 1s ease-in-out;
-   border-radius: 20px;
-   height: 120px;
-   width: 250px;
+
+  .box-1,
+  .box-2,
+  .box-3,
+  .box-4 {
+    height: 150px;
+    width: 260px;
+  }
 }
+
+img {
+  transition: cubic-bezier(0.95, 0.05, 0.795, 0.035);
+  transition-delay: 0s;
 }
-.box2 h1{
-  font-size: 30px;
-  font-weight: 800px;
+
+.box2 h1 {
+  font-size: 50px;
+  font-weight: 800;
+
 
 }
-.box2 p{
+
+.box2 p {
   font-size: 20px;
   font-weight: 800px;
-  
-}
-.box1 h1{
-  font-size: 30px;
-  font-weight: 800px;
 
 }
-.box1 p{
+
+.box1 h1 {
+  font-size: 50px;
+  font-weight: 800;
+
+}
+
+.box1 p {
   font-size: 20px;
-  font-weight: 800px;
-  
-}
-/* img{
-  margin-top: -96px;
-}
-.onScroll-Animation {
-  background: linear-gradient(to right, #22c55e, #22c55e) no-repeat, white;
-  background-size: 2% 100%;
-  animation: proceed 15s linear forwards;
- 
-}
-.carimg{
-animation: move 15s linear forwards;
-}
-@keyframes move {
-  0%{
-margin-left: 0px;
-  }
-  100%{
-margin-left: 1500px;
-  }
-}
-/* .animation{
-  
-} */
+  font-weight: 400;
 
-/* @keyframes proceed {
-  to {
-    background-size: 100% 100%;
-  }
-} */ 
+}
